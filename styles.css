@@ -1,0 +1,263 @@
+:root {
+  --black: #0e0e0f;
+  --gray-900: #18181b;
+  --gray-700: #2d2d33;
+  --gray-100: #e8e8ed;
+  --gold: #c6a66a;
+  --glass: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, #242429, #0d0d0f 55%);
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: rgba(10, 10, 12, 0.85);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav a {
+  color: var(--gray-100);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.section {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 2.8rem 0;
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 4vw, 3rem);
+}
+
+h1 span,
+h2 {
+  color: var(--gold);
+}
+
+.chip {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  color: var(--gray-100);
+  font-size: 0.8rem;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #b38a45, #d3b47a);
+  color: #111;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-glass,
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.hero-card {
+  padding: 1rem;
+}
+
+.hero-card ul {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+}
+
+.section-head {
+  margin-bottom: 1rem;
+}
+
+.gallery-grid,
+.products,
+.cards,
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item,
+.product-card,
+.cards article,
+.contact-grid a {
+  padding: 0.9rem;
+}
+
+.gallery-item img,
+.product-card img {
+  width: 100%;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  height: 150px;
+}
+
+.filters,
+.quote-form,
+.ai-form {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: rgba(19, 19, 22, 0.8);
+  color: #fff;
+  border-radius: 0.65rem;
+  padding: 0.7rem;
+}
+
+.ai-form {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.ai-form .full {
+  grid-column: 1/-1;
+}
+
+.ai-result {
+  margin-top: 1rem;
+}
+
+.ai-result .glass {
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.quote-form textarea {
+  min-height: 100px;
+}
+
+.contact-grid a {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+dialog {
+  border: 1px solid var(--border);
+  background: #18181b;
+  color: #fff;
+  border-radius: 1rem;
+  width: min(650px, 92vw);
+}
+
+#dialogContent img {
+  width: 100%;
+  border-radius: 0.7rem;
+  max-height: 260px;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-btn {
+    display: block;
+    background: none;
+    color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+  }
+
+  .nav {
+    position: absolute;
+    top: 58px;
+    right: 10px;
+    flex-direction: column;
+    background: #121214;
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
