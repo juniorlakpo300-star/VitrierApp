@@ -3,26 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vitrier Prestige | Vitres, Fenêtres, Balcons & Garde-corps</title>
-    <meta
-      name="description"
-      content="Vitrier Prestige conçoit, vend et installe des solutions vitrées modernes : fenêtres, balcons, vitrines et garde-corps."
-    />
-    <meta
-      name="keywords"
-      content="vitrier, fenêtre, balcon, garde-corps, vitrine, verre moderne, devis vitrier"
-    />
+    <meta name="theme-color" content="#0b0c10" />
+    <title>Vitrier Prestige | Vitrerie moderne & sur mesure</title>
+    <meta name="description" content="Vitrier Prestige conçoit et installe des fenêtres, balcons, vitrines et garde-corps modernes. Demandez votre devis et explorez nos designs." />
+    <meta name="keywords" content="vitrier, fenêtre, balcon, garde-corps, vitrine, verre moderne, devis vitrier" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div class="brand">Vitrier <span>Prestige</span></div>
-      <button class="menu-btn" aria-label="Ouvrir le menu">☰</button>
-      <nav class="nav" id="nav">
+      <a class="brand" href="#accueil" aria-label="Vitrier Prestige - accueil">Vitrier <span>Prestige</span></a>
+      <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#produits">Produits</a>
-        <a href="#assistant">Assistant IA</a>
+        <a href="#galerie">Réalisations</a>
+        <a href="#produits">Catalogue</a>
+        <a href="#assistant">Assistant</a>
         <a href="#devis">Devis</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -30,165 +25,131 @@
 
     <main>
       <section id="accueil" class="hero section">
-        <div>
-          <p class="chip">Entreprise de vitrerie moderne</p>
-          <h1>
-            Design verre haut de gamme<br />
-            <span>pour sublimer votre maison.</span>
-          </h1>
-          <p>
-            Nous vendons et installons des vitres, fenêtres, balcons et garde-corps
-            avec une finition premium, durable et élégante.
-          </p>
+        <div class="hero-copy">
+          <p class="chip">VITRERIE • ALUMINIUM • SUR MESURE</p>
+          <h1>Le verre qui transforme <span>vos espaces.</span></h1>
+          <p class="hero-lead">Des solutions vitrées modernes, sécurisées et élégantes pour maisons, appartements et commerces.</p>
           <div class="hero-actions">
             <a href="#devis" class="btn btn-primary">Demander un devis</a>
-            <a href="#galerie" class="btn btn-glass">Voir les designs</a>
+            <a href="#galerie" class="btn btn-glass">Voir nos réalisations</a>
+          </div>
+          <div class="hero-stats" aria-label="Points forts">
+            <div><strong>Sur mesure</strong><span>Étude du projet</span></div>
+            <div><strong>Premium</strong><span>Finitions soignées</span></div>
+            <div><strong>Rapide</strong><span>Accompagnement</span></div>
           </div>
         </div>
         <aside class="hero-card glass">
-          <h3>Pourquoi nous choisir ?</h3>
+          <span class="eyebrow">NOTRE ENGAGEMENT</span>
+          <h2>Un projet clair, du premier contact à la pose.</h2>
           <ul>
-            <li>Installation certifiée</li>
-            <li>Garantie matériaux & pose</li>
-            <li>Intervention rapide</li>
-            <li>Accompagnement IA personnalisé</li>
+            <li>Conseil adapté à votre espace</li>
+            <li>Solutions de vitrage et sécurité</li>
+            <li>Finitions pensées pour votre intérieur</li>
+            <li>Suivi de votre demande</li>
           </ul>
         </aside>
       </section>
 
       <section id="galerie" class="section">
         <div class="section-head">
-          <h2>Galerie de designs</h2>
-          <p>Explorez des styles élégants adaptés à tout type de maison.</p>
+          <div><span class="eyebrow">INSPIRATION</span><h2>Réalisations & designs</h2></div>
+          <p>Des idées pour visualiser votre prochain projet.</p>
         </div>
         <div class="gallery-grid" id="gallery"></div>
       </section>
 
       <section id="produits" class="section">
         <div class="section-head">
-          <h2>Produits & options</h2>
-          <p>Filtrez et comparez facilement les solutions vitrées.</p>
+          <div><span class="eyebrow">CATALOGUE</span><h2>Produits & options</h2></div>
+          <p>Recherchez une solution, comparez son prix indicatif et demandez un devis.</p>
         </div>
         <div class="filters glass">
-          <input type="search" id="search" placeholder="Rechercher un produit..." />
-          <select id="categoryFilter">
+          <label class="search-field"><span>Recherche</span><input type="search" id="search" placeholder="Ex. fenêtre, balcon..." /></label>
+          <label><span>Catégorie</span><select id="categoryFilter">
             <option value="all">Toutes catégories</option>
             <option value="fenetre">Fenêtres</option>
             <option value="balcon">Balcons</option>
             <option value="vitrine">Vitrines</option>
             <option value="garde-corps">Garde-corps</option>
-          </select>
-          <select id="priceFilter">
+          </select></label>
+          <label><span>Budget indicatif</span><select id="priceFilter">
             <option value="all">Tous les prix</option>
             <option value="low">Jusqu'à 1 000 000 FCFA</option>
             <option value="mid">1 000 000 à 3 000 000 FCFA</option>
             <option value="high">Plus de 3 000 000 FCFA</option>
-          </select>
+          </select></label>
         </div>
+        <div class="catalog-meta"><span id="productCount"></span><button id="resetFilters" class="text-btn" type="button">Réinitialiser</button></div>
         <div class="products" id="productList"></div>
+        <div id="emptyProducts" class="empty-state glass" hidden>Aucun produit ne correspond à votre recherche.</div>
       </section>
 
       <section id="assistant" class="section ai-section">
         <div class="section-head">
-          <h2>Assistant IA</h2>
-          <p>
-            Décrivez votre projet, ajoutez une photo de votre maison/balcon et obtenez des recommandations sur mesure.
-          </p>
+          <div><span class="eyebrow">CONSEIL PROJET</span><h2>Assistant de recommandation</h2></div>
+          <p>Répondez à quelques questions pour obtenir une sélection adaptée. L'analyse actuelle est locale et instantanée.</p>
         </div>
         <form id="aiForm" class="glass ai-form">
-          <label>
-            Type de maison
-            <select name="homeType" required>
-              <option value="">Choisir...</option>
-              <option>Appartement</option>
-              <option>Villa</option>
-              <option>Maison moderne</option>
-              <option>Maison classique</option>
-            </select>
-          </label>
-          <label>
-            Espace disponible
-            <select name="space" required>
-              <option value="">Choisir...</option>
-              <option>Petit</option>
-              <option>Moyen</option>
-              <option>Grand</option>
-            </select>
-          </label>
-          <label>
-            Style souhaité
-            <select name="style" required>
-              <option value="">Choisir...</option>
-              <option>Minimaliste</option>
-              <option>Luxe</option>
-              <option>Contemporain</option>
-              <option>Classique</option>
-            </select>
-          </label>
-          <label>
-            Budget estimé (FCFA)
-            <input type="number" name="budget" placeholder="Ex: 2500000" min="100000" required />
-          </label>
-          <label class="full">
-            Photo maison / balcon
-            <input type="file" id="projectImage" accept="image/*" />
-          </label>
-          <button class="btn btn-primary" type="submit">Analyser et recommander</button>
+          <label>Type de maison<select name="homeType" required><option value="">Choisir...</option><option>Appartement</option><option>Villa</option><option>Maison moderne</option><option>Maison classique</option></select></label>
+          <label>Espace disponible<select name="space" required><option value="">Choisir...</option><option>Petit</option><option>Moyen</option><option>Grand</option></select></label>
+          <label>Style souhaité<select name="style" required><option value="">Choisir...</option><option>Minimaliste</option><option>Luxe</option><option>Contemporain</option><option>Classique</option></select></label>
+          <label>Budget estimé (FCFA)<input type="number" name="budget" placeholder="Ex. 2500000" min="100000" step="50000" required /></label>
+          <label class="full">Photo maison / balcon<input type="file" id="projectImage" accept="image/*" /></label>
+          <button class="btn btn-primary" type="submit">Analyser mon projet</button>
         </form>
         <div class="ai-result" id="aiResult" aria-live="polite"></div>
       </section>
 
       <section id="devis" class="section">
         <div class="section-head">
-          <h2>Demande de devis</h2>
-          <p>Recevez une estimation claire sous 24h.</p>
+          <div><span class="eyebrow">VOTRE PROJET</span><h2>Demander un devis</h2></div>
+          <p>Les informations sont conservées dans ce navigateur jusqu'à la connexion d'un service d'envoi.</p>
         </div>
         <form class="quote-form glass" id="quoteForm">
-          <input type="text" placeholder="Nom complet" required />
-          <input type="tel" placeholder="Téléphone" required />
-          <input type="email" placeholder="Email" required />
-          <textarea placeholder="Décrivez votre besoin..." required></textarea>
-          <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+          <label>Nom complet<input id="quoteName" type="text" placeholder="Votre nom" autocomplete="name" required /></label>
+          <label>Téléphone<input id="quotePhone" type="tel" placeholder="Votre téléphone" autocomplete="tel" required /></label>
+          <label>Email<input id="quoteEmail" type="email" placeholder="Votre email" autocomplete="email" required /></label>
+          <label class="full">Votre besoin<textarea id="quoteMessage" placeholder="Type de vitrage, dimensions, localisation, projet..." required></textarea></label>
+          <div class="quote-footer"><span id="quoteStatus" class="status" aria-live="polite"></span><button class="btn btn-primary" type="submit">Enregistrer ma demande</button></div>
         </form>
+        <div id="savedQuote" class="saved-quote glass" hidden></div>
       </section>
 
       <section id="contact" class="section">
         <div class="section-head">
-          <h2>Contact rapide</h2>
-          <p>Parlez à un expert immédiatement.</p>
+          <div><span class="eyebrow">CONTACT</span><h2>Parlons de votre projet</h2></div>
+          <p>Les coordonnées ci-dessous sont celles actuellement présentes dans le projet.</p>
         </div>
         <div class="contact-grid">
-          <a class="glass" href="https://wa.me/212600000000" target="_blank" rel="noreferrer">WhatsApp</a>
-          <a class="glass" href="tel:+212600000000">+212 6 00 00 00 00</a>
-          <a class="glass" href="https://maps.google.com" target="_blank" rel="noreferrer">Voir la localisation</a>
+          <a class="glass contact-card" href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Contacter</strong></a>
+          <a class="glass contact-card" href="tel:+212600000000"><span>Téléphone</span><strong>+212 6 00 00 00 00</strong></a>
+          <a class="glass contact-card" href="https://maps.google.com" target="_blank" rel="noopener noreferrer"><span>Localisation</span><strong>Ouvrir Maps</strong></a>
         </div>
       </section>
 
       <section class="section testimonials">
-        <div class="section-head">
-          <h2>Avis clients</h2>
-        </div>
+        <div class="section-head"><div><span class="eyebrow">CONFIANCE</span><h2>Avis clients</h2></div></div>
         <div class="cards">
-          <article class="glass"><p>“Service impeccable et design magnifique.”</p><strong>- Nadia B.</strong></article>
-          <article class="glass"><p>“Installation rapide, équipe sérieuse.”</p><strong>- Karim T.</strong></article>
-          <article class="glass"><p>“Notre balcon en verre a totalement changé la façade.”</p><strong>- Salma R.</strong></article>
+          <article class="glass"><p>“Service impeccable et design magnifique.”</p><strong>Nadia B.</strong></article>
+          <article class="glass"><p>“Installation rapide, équipe sérieuse.”</p><strong>Karim T.</strong></article>
+          <article class="glass"><p>“Notre balcon en verre a totalement changé la façade.”</p><strong>Salma R.</strong></article>
         </div>
       </section>
 
       <section class="section about">
-        <div class="section-head">
-          <h2>À propos</h2>
+        <div class="about-card glass">
+          <div><span class="eyebrow">À PROPOS</span><h2>Vitrier Prestige</h2></div>
+          <p>Vitrier Prestige accompagne les particuliers et professionnels avec des solutions verrières modernes, sécurisées et esthétiques.</p>
         </div>
-        <p>
-          Vitrier Prestige accompagne les particuliers et professionnels depuis plus de 12 ans
-          avec des solutions verrières modernes, sécurisées et esthétiques.
-        </p>
       </section>
     </main>
 
+    <footer class="footer"><span>Vitrier Prestige</span><span>© <span id="year"></span> • Tous droits réservés</span></footer>
+
     <dialog id="productDialog">
+      <button class="dialog-close" id="closeDialog" type="button" aria-label="Fermer">×</button>
       <article id="dialogContent"></article>
-      <button class="btn" id="closeDialog">Fermer</button>
     </dialog>
 
     <script src="app.js" defer></script>
